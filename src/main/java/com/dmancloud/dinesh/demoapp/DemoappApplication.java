@@ -12,9 +12,9 @@ public class DemoappApplication {
 }
 
 
-public int divide(int a, int b) {
-    return a / 0;   // ❌ Always crash
-}
+// public int divide(int a, int b) {
+//     return a / 0;   // ❌ Always crash
+// }
 
 
 public void login() {
