@@ -26,7 +26,7 @@ pipeline{
         }
         stage("Checkout from SCM"){
             steps {
-				git branch: 'main', url: 'https://github.com/avp10/Devops-Mega-project.git'
+				git branch: 'main', credentialsId: 'github', url: 'https://github.com/avp10/Devops-Mega-project.git'
             }
 
         }
