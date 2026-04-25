@@ -9,8 +9,8 @@ pipeline{
     environment {
         APP_NAME = "devops-mega-project"
         RELEASE = "1.0.0"
-        DOCKER_USER = "mydevopsuser46"
-        DOCKER_PASS = 'dockerhub'
+        DOCKER_USER = "ampat1024"
+        DOCKER_PASS = credentials("dockerhub-token")
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
         // JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
@@ -26,7 +26,7 @@ pipeline{
         }
         stage("Checkout from SCM"){
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/Devops1224789/Devops-Mega-project.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/avp10/Devops-Mega-project.git'
             }
 
         }
@@ -84,7 +84,7 @@ pipeline{
         // stage("Trivy Scan") {
         //     steps {
         //         script {
-		//    sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image mydevopsuser46/devops-mega-project:latest  --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
+		//    sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image ampat1024/devops-mega-project:latest  --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
         //         }
         //     }
 
@@ -113,7 +113,7 @@ pipeline{
     // post {
     //       success {
     //           emailext (
-    //               to: 'devopsstudy09@gmail.com',
+    //               to: 'ampat1024@gmail.com',
     //               subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
     //               body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.</p><p>Check console output at <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>""",
     //               mimeType: 'text/html'
@@ -121,7 +121,7 @@ pipeline{
     //       }
     //       failure {
     //           emailext (
-    //               to: 'devopsstudy09@gmail.com',
+    //               to: 'ampat1024@gmail.com',
     //               subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
     //               body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed.</p><p>Check console output at <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>""",
     //               mimeType: 'text/html'
